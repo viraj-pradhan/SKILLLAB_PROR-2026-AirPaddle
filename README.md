@@ -66,7 +66,7 @@ AirPaddle
 | `Viraj Pradhan` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
 | `Shakshi thakare`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
 | `Shaikh umair`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| | `Bhushan sonawane`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Bhushan sonawane`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
 | 
 
 ## 1.3 Project Title
