@@ -57,18 +57,21 @@ By the final review, this README should clearly show:
 
 ## 1.1 Studio / Group Name
 
-`Project^2`
+AirPaddle
 
 ## 1.2 Team Members
 
 | Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
 | --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Mrugendra Vasmatkar` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `Jyoti Bagate`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Viraj Pradhan` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
+| `Shakshi thakare`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Shaikh umair`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| | `Bhushan sonawane`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| 
 
 ## 1.3 Project Title
 
-`"Project Project"`
+`"Pingpong"`
 
 `(because Project-or)`
 
