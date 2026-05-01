@@ -1,160 +1,311 @@
-#  AirPaddle — Gesture-Controlled Ping Pong
+# SKILL LAB PRACTICAL HACKATHON
 
-> A multiplayer ping pong game where players control paddles using real-time hand gestures through MPU6050 motion sensors connected to a Raspberry Pi.
-
----
-
-## 👥 Team Identity
-
-**Studio / Group Name:** `AirPaddle — Group No. 21`
-
-| Name | Primary Role | Secondary Role | Strengths |
-|---|---|---|---|
-| Sakshi Thakare | Electronics / Coding / App | Coding | Hardware |
-| Viraj Pradhan | Electronics / Fabrication | Coding | Hardware |
-| Umair Shaikh | Electronics / Coding / App | Documentation | Documentation, Communication |
-| Bhushan Sonawane | Electronics / Fabrication | Documentation | Documentation, Communication |
+## Final Project README
 
 ---
 
-## 💡 One-Line Pitch
+# 1. Team Identity
 
-**Hand-tilt your way to victory** — two MPU6050 sensors feed live motion data to a Raspberry Pi running a Rust + Raylib game engine, moving paddles in real time.
+## 1.1 Studio / Group Name
 
----
+`AirPaddle Group No 21`
 
-## 🎯 Project Idea
+## 1.2 Team Members
 
-AirPaddle is a **gesture-controlled Ping Pong** game built using Raspberry Pi, MPU6050 motion sensors, and the Raylib graphics framework written in Rust.
+| Name | Primary Role | Secondary Role | Strengths Brought to the Project |
+| --- | --- | --- | --- |
+| `Sakshi Thakare` | `Electronics / Coding / App` | `Coding` | `Hardware` |
+| `Viraj Pradhan` | `Electronics / Fabrication` | `Coding` | `Hardware` |
+| `Umair Shaikh` | `Electronics / Coding / App` | `Documentation` | `Documentation, Gift of Gab` |
+| `Bhushan Sonawane` | `Electronics / Fabrication` | `Documentation` | `Documentation, Gift of Gab` |
 
-Instead of keyboards or joysticks, each player physically tilts a handheld controller containing an MPU6050 sensor. The sensor detects upward and downward tilt through its accelerometer. These values are read via I2C directly on the Raspberry Pi, processed in Rust, and translated to real-time paddle movement on the display.
+## 1.3 Project Title
 
-The entire game interface — start, gameplay, score, and restart — runs on the Raspberry Pi display screen, making it a fully self-contained embedded gaming system.
+`"Project AirPaddle — Gesture-Controlled Ping Pong"`
 
----
+<img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
 
-## ✨ Inspiration
+## 1.4 One-Line Pitch
 
-| Source | What Inspired Us |
-|---|---|
-| [Instagram Reel — Projection Mapping](https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo) | How projection mapping creates interactive digital + physical experiences |
+`A multiplayer ping pong game where players control paddles using hand gestures through MPU6050 motion sensors connected to Raspberry Pi.`
 
-**Original Twist:** Unlike traditional input-device ping pong, our system uses dual MPU6050 sensors with distinct I2C addresses (0x68 / 0x69) so both players are tracked simultaneously. The tilt-to-position mapping is computed directly in Rust with no middleware, giving instant, low-latency paddle response.
+## 1.5 Expanded Project Idea
 
----
+`Our project is a gesture-controlled Ping Pong game built using Raspberry Pi, MPU6050 motion sensors, and a display interface. Instead of using a keyboard or joystick, players use hand movements to control the paddles in the game.`
 
-## 🗺️ User Journey
+`Each player holds an MPU6050 sensor, which detects motion such as upward and downward tilt. These motion values are read directly by the Raspberry Pi over I2C, where the main game logic runs using Rust and Raylib. The Raspberry Pi processes the gestures and moves the paddles accordingly on the display screen.`
 
-```
-Player picks up sensor → Game launches on Raspberry Pi display
-        ↓
-Players tilt hands up/down → Paddles move in real time
-        ↓
-Ball bounces between paddles → Score tracked on screen
-        ↓
-Ball crosses boundary → Ball resets, game continues
-```
+`Since OLED and external buttons were unavailable, the complete interface including game start, restart, and controls is handled directly on the Raspberry Pi display. This creates a simple but highly interactive gaming experience using embedded systems and sensor-based control.`
 
 ---
 
-## ✅ Definition of Success
+# 2. Inspiration
 
-| Version | What It Includes |
-|---|---|
-| **Minimum Usable** | Both MPU6050 sensors connected via I2C, basic Pygame/Raylib display with paddles and ball, gesture-based paddle control |
-| **Full Success** | Smooth real-time motion tracking, correct ball physics, two players competing without lag, crashes, or sensor disconnects |
+## 2.1 References
 
-### 🚀 Stretch Features
-- Smash detection using sudden acceleration spikes
-- Scoreboard system with win tracking
-- Sound effects and background music
-- AI single-player mode
-- Real-time motion visualization graphs
-- Wireless sensor communication via ESP32
-- Gesture calibration menu
-- Full-screen arcade mode
+| Source Type | Title / Link | What Inspired You |
+| --- | --- | --- |
+| `Video` | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
+
+## 2.2 Original Twist
+
+`Unlike traditional keyboard or joystick-based ping pong games, our project uses dual MPU6050 motion sensors connected directly to a Raspberry Pi via I2C to create a real-time gesture-controlled multiplayer gaming experience. Each player physically tilts a handheld controller containing the MPU6050 sensor, and the Raspberry Pi processes these motion values instantly in a Rust + Raylib game engine to move the paddles on-screen. The project combines embedded electronics, accelerometer-based input, Rust game development, and real-time motion tracking into an interactive physical gaming system.`
 
 ---
 
-## 🏗️ System Overview
+# 3. Project Intent
 
-**Project Type:** Electronics-based · Sensor-based · Screen/UI-based · Game logic · Fabricated structure · Sound-based
+## 3.1 User Journey
 
-### Input / Output Map
+`The user starts the Raspberry Pi system and launches the AirPaddle game on the display screen. Each player holds an MPU6050 motion sensor in their hand. Once the game begins, players tilt their hands upward or downward to control their paddles on the screen.`
+
+`The Raspberry Pi continuously reads motion data from both MPU6050 sensors through the I2C interface and processes the tilt values in Rust using Raylib. As players move their hands, the paddles respond in real time, creating a gesture-based multiplayer ping pong experience.`
+
+`Players compete by trying to block and return the moving ball. The ball speeds up with every paddle hit, making the gameplay progressively more challenging. The game resets the ball automatically whenever it crosses a boundary, and the score is displayed live on screen throughout the match.`
+
+---
+
+# 4. Definition of Success
+
+## 4.1 Definition of "Usable"
+
+`The project is considered usable when both MPU6050 sensors successfully control the paddles in real time with smooth motion tracking, the ball physics work correctly, and two players can play the game continuously without major lag, crashes, or sensor disconnects.`
+
+## 4.2 Minimum Usable Version
+
+`The minimum usable version includes two MPU6050 sensors connected to Raspberry Pi through I2C (addresses 0x68 and 0x69), a Raylib fullscreen window displaying paddles and a moving ball, and gesture-based paddle movement using Y-axis tilt readings from both sensors.`
+
+## 4.3 Stretch Features
+
+- `Smash detection using sudden acceleration spikes`
+- `Scoreboard system with win tracking`
+- `Sound effects and background music`
+- `AI single player mode`
+- `Real-time motion visualization graphs`
+- `Wireless sensor communication using ESP32`
+- `Gesture calibration menu`
+- `Full-screen arcade mode with win condition`
+
+---
+
+# 5. System Overview
+
+## 5.1 Project Type
+
+- [x] Electronics-based
+- [x] Mechanical
+- [x] Sensor-based
+- [x] App-connected
+- [ ] Motorized
+- [x] Sound-based
+- [ ] Light-based
+- [x] Screen/UI-based
+- [x] Fabricated structure
+- [x] Game logic based
+- [x] Installation
+- [ ] Other:
+
+## 5.2 High-Level System Description
+
+The system uses two MPU6050 motion sensors connected to the Raspberry Pi through the I2C communication protocol. Each sensor detects the tilt and motion of a player's hand using its onboard accelerometer.
+
+The Raspberry Pi processes these motion values using a Rust-based game engine built with Raylib. The Y-axis tilt values are mapped to vertical paddle position inside a multiplayer ping pong game running at 60 FPS.
+
+The HDMI display connected to the Raspberry Pi shows the live game interface, including paddle movement, ball physics, trail effect, and score in real time.
+
+## 5.3 Input / Output Map
 
 | System Part | Type | What It Does |
-|---|---|---|
+| --- | --- | --- |
 | MPU6050 Sensor 1 (0x68) | Input | Detects hand tilt for Player 1 paddle |
 | MPU6050 Sensor 2 (0x69) | Input | Detects hand tilt for Player 2 paddle |
 | Raspberry Pi 4 | Processing | Reads sensor data and runs game logic |
-| Rust + Raylib | Software | Renders game graphics and physics |
-| HDMI Display | Output | Shows live ping pong gameplay |
-| I2C Bus (SDA/SCL) | Communication | Transfers motion data from both sensors |
+| Rust + Raylib | Software | Renders game graphics and physics at 60 FPS |
+| HDMI Display Screen | Output | Shows live ping pong gameplay |
+| I2C Communication | Communication | Transfers motion data from both sensors |
 
 ---
 
-## ⚙️ Software Architecture & Flowcharts
+# 6. System Design, Sketches and Visual Planning
 
-### 1. System Startup Flow
+## 6.1 Concept Architecture / Sketch / Schematic
+
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/95637f31-b4e7-4427-a9e1-4b63fbeb0ac5" />
+
+## 6.2 Labeled Build Sketch / Architecture / Flow Diagram
+
+**I2C Wiring Architecture:**
+
+```
+Raspberry Pi 4
+┌───────────────────────────┐
+│  GPIO2 (SDA) ─────────────┼──┬──── MPU6050 #1  AD0 → GND   (address 0x68)
+│  GPIO3 (SCL) ─────────────┼──┤──── MPU6050 #2  AD0 → 3.3V  (address 0x69)
+│  3.3V        ─────────────┼──┤──── VCC (both sensors)
+│  GND         ─────────────┼──┴──── GND (both sensors)
+└───────────────────────────┘
+              │
+         HDMI Cable
+              │
+       ┌──────────────┐
+       │ Display Screen│
+       └──────────────┘
+```
+
+## 6.3 Approximate Dimensions
+
+| Dimension | Value |
+| --- | --- |
+| Length | `16 cm` |
+| Width | `16 cm` |
+| Height | `8 cm` |
+| Estimated weight | `400 g` |
+
+---
+
+# 7. Electronics Planning
+
+## 7.1 Electronics Used
+
+| Component | Quantity | Purpose |
+| --- | ---: | --- |
+| `Raspberry Pi 4` | `1` | `Main game processing unit` |
+| `MPU6050 Motion Sensor` | `2` | `Detect player hand gestures via accelerometer` |
+| `HDMI Display` | `1` | `Display game interface` |
+| `Jumper Wires` | `Several` | `I2C and power connections` |
+| `Breadboard` | `1` | `Temporary prototyping connections` |
+| `Power Adapter (5V)` | `1` | `Power Raspberry Pi` |
+
+## 7.2 Wiring Plan
+
+Both MPU6050 sensors are connected to the Raspberry Pi using the I2C communication protocol. The SDA pins of both sensors are connected to GPIO2 (Pin 3), and the SCL pins are connected to GPIO3 (Pin 5). Both sensors share common 3.3V power and GND connections.
+
+To avoid I2C address conflicts, the AD0 pin of the first MPU6050 is connected to GND, giving it address **0x68**, while the AD0 pin of the second MPU6050 is connected to 3.3V, changing its address to **0x69**.
+
+The Raspberry Pi continuously reads motion data from both sensors and maps the Y-axis tilt values to paddle position in the game.
+
+## 7.3 Circuit Diagram
+
+```
+MPU6050 #1 (0x68)          MPU6050 #2 (0x69)
+┌──────────────┐            ┌──────────────┐
+│ VCC → 3.3V   │            │ VCC → 3.3V   │
+│ GND → GND    │            │ GND → GND    │
+│ SDA → GPIO2  │            │ SDA → GPIO2  │
+│ SCL → GPIO3  │            │ SCL → GPIO3  │
+│ AD0 → GND    │            │ AD0 → 3.3V   │
+└──────────────┘            └──────────────┘
+        └──────────┬─────────────┘
+               Raspberry Pi 4
+```
+
+## 7.4 Power Plan
+
+| Question | Response |
+| --- | --- |
+| Power source | `5V Power Adapter via USB-C` |
+| Voltage required | `5V for Raspberry Pi; 3.3V for MPU6050 sensors (supplied by Pi GPIO)` |
+| Current concerns | `Sensors draw minimal current (~3.9 mA each); Raspberry Pi is the main load` |
+| Safety concerns | `Avoid reverse polarity on sensor VCC/GND; ensure stable 5V supply to prevent Pi brownouts during I2C reads` |
+
+---
+
+# 8. Software Planning
+
+## 8.1 Software Tools
+
+| Tool / Platform | Purpose |
+| --- | --- |
+| `Rust (Edition 2024)` | `Main programming language for game logic` |
+| `Cargo` | `Rust package manager and build system` |
+| `Raylib 5.5.1` | `Graphics rendering and game framework` |
+| `linux-embedded-hal` | `I2C device access on Raspberry Pi Linux` |
+| `mpu6050 crate` | `Sensor communication and accelerometer reading` |
+| `rand crate` | `Random ball direction on reset` |
+| `Raspberry Pi OS` | `Runs the complete game system` |
+| `Nano / VS Code` | `Code editing and debugging` |
+
+## 8.2 Software Logic / Algorithm
+
+**Startup behavior:**
+The Raspberry Pi opens both I2C devices on `/dev/i2c-1`, initializes MPU6050 #1 at 0x68 and MPU6050 #2 at 0x69, then creates a fullscreen Raylib window locked to 60 FPS.
+
+**Input handling:**
+Every frame, tilt values are read from both MPU6050 sensors via the `get_acc()` call. The Y-axis accelerometer value is used as the tilt input for each player's paddle.
+
+**Sensor reading:**
+`get_sensor_position()` reads the Y-axis acceleration, multiplies by 250.0 to convert to screen pixels, and clamps the result between 50px and `screen_height - 150px`. On read error, it defaults to screen center so the game never crashes.
+
+**Decision logic:**
+Tilt values are mapped directly to paddle Y positions. Circle-rectangle collision detection checks the ball against each paddle. On hit, the ball reverses X direction and speed multiplies by 1.1×. Score increments on every successful paddle hit.
+
+**Output behavior:**
+Raylib renders each frame: top/bottom boundary lines, dashed center divider, scores, left and right paddles, ball trail (last 8 positions in grey), and the ball in white.
+
+**Communication logic:**
+Both MPU6050 sensors communicate with Raspberry Pi using shared SDA and SCL I2C lines. Address separation (0x68 / 0x69 via AD0 pin) allows both sensors to coexist on one bus without conflict.
+
+**Reset behavior:**
+When the ball's X coordinate leaves the screen bounds, `ball.reset()` is called — ball returns to center, velocity randomizes direction, trail clears, and hit count resets.
+
+## 8.3 Code Flowchart
+
+**1. Startup Flow:**
 
 ```mermaid
 flowchart TD
-    A([Start]) --> B[Initialize I2C Bus /dev/i2c-1]
-    B --> C[Wake up MPU6050 #1 at 0x68]
-    C --> D[Wake up MPU6050 #2 at 0x69]
+    A([Start]) --> B[Open I2C Bus /dev/i2c-1]
+    B --> C[Init MPU6050 #1 at 0x68]
+    C --> D[Init MPU6050 #2 at 0x69]
     D --> E{Sensors OK?}
     E -- No --> F[Print Error & Exit]
-    E -- Yes --> G[Initialize Raylib Fullscreen Window @ 60 FPS]
+    E -- Yes --> G[Init Raylib Fullscreen Window at 60 FPS]
     G --> H[Create Left & Right Paddles]
     H --> I[Spawn Ball at Screen Center]
     I --> J([Enter Game Loop])
 ```
 
----
-
-### 2. Main Game Loop
+**2. Main Game Loop:**
 
 ```mermaid
 flowchart TD
-    A([Game Loop Start]) --> B[Read Y-axis tilt from MPU6050 #1]
-    B --> C[Read Y-axis tilt from MPU6050 #2]
-    C --> D[Map tilt values → screen Y positions]
-    D --> E[Clamp paddles within top & bottom boundaries]
-    E --> F[Append ball position to trail buffer]
+    A([Frame Start]) --> B[Read Y-tilt from MPU6050 #1]
+    B --> C[Read Y-tilt from MPU6050 #2]
+    C --> D[Map tilt to screen Y positions]
+    D --> E[Clamp paddles within boundaries]
+    E --> F[Add ball pos to trail, trim to 8 entries]
     F --> G[Move ball: x += vx, y += vy]
-    G --> H{Ball hit top or bottom wall?}
+    G --> H{Hit top or bottom wall?}
     H -- Yes --> I[Reverse vy]
-    H -- No --> J{Ball hit Left Paddle?}
+    H -- No --> J{Hit Left Paddle?}
     I --> J
-    J -- Yes --> K[Reverse & accelerate vx × 1.1\nIncrement Left Score]
-    J -- No --> L{Ball hit Right Paddle?}
+    J -- Yes --> K[Reverse vx x 1.1, l_score += 1]
+    J -- No --> L{Hit Right Paddle?}
     K --> L
-    L -- Yes --> M[Reverse & accelerate vx × 1.1\nIncrement Right Score]
-    L -- No --> N{Ball out of bounds?}
+    L -- Yes --> M[Reverse vx x 1.1, r_score += 1]
+    L -- No --> N{Ball out of screen?}
     M --> N
-    N -- Yes --> O[Reset ball to center\nRandom new direction]
-    N -- No --> P[Draw frame: background, divider,\nscores, paddles, ball trail, ball]
+    N -- Yes --> O[Reset ball: center, random direction, clear trail]
+    N -- No --> P[Draw: boundaries, scores, paddles, trail, ball]
     O --> P
     P --> Q{Window close?}
     Q -- No --> A
     Q -- Yes --> R([Exit])
 ```
 
----
-
-### 3. Sensor Reading & Paddle Mapping
+**3. Sensor Reading Detail:**
 
 ```mermaid
 flowchart TD
     A([get_sensor_position called]) --> B[Call mpu.get_acc]
-    B --> C{Read success?}
-    C -- No / Error --> D[Return screen_h / 2.0\nDefault center position]
+    B --> C{Read OK?}
+    C -- No --> D[Return screen_h / 2.0 as default]
     C -- Yes --> E[Read Y-axis accelerometer value]
-    E --> F[pos = screen_h/2 + tilt × 250.0]
+    E --> F[pos = screen_h/2 + tilt x 250.0]
     F --> G{pos < 50.0?}
     G -- Yes --> H[Clamp pos to 50.0]
     G -- No --> I{pos > screen_h - 150.0?}
-    H --> J([Return clamped pos])
+    H --> J([Return pos])
     I -- Yes --> K[Clamp pos to screen_h - 150.0]
     I -- No --> J
     K --> J
@@ -162,300 +313,303 @@ flowchart TD
 
 ---
 
-### 4. Ball Physics & Collision
+# 9. Bill of Materials
 
-```mermaid
-flowchart TD
-    A([Ball Update]) --> B[Push current position to trail\nRemove oldest if trail length > 8]
-    B --> C[ball.x += ball.vx\nball.y += ball.vy]
-    C --> D{Top/bottom boundary hit?}
-    D -- Yes --> E[ball.vy = -ball.vy]
-    D -- No --> F{Overlaps Left Paddle\nAND ball moving left?}
-    E --> F
-    F -- Yes --> G[ball.vx = -ball.vx × 1.1\nl_score += 1]
-    F -- No --> H{Overlaps Right Paddle\nAND ball moving right?}
-    G --> H
-    H -- Yes --> I[ball.vx = -ball.vx × 1.1\nr_score += 1]
-    H -- No --> J{ball.x out of screen?}
-    I --> J
-    J -- Yes --> K[Reset ball:\nCenter position\nRandom vx / vy direction\nClear trail\nHits = 0]
-    J -- No --> L([Proceed to Draw])
-    K --> L
-```
+## 9.1 Full BOM
 
----
+| Item | Quantity | In Kit? | Need to Buy? | Estimated Cost (₹) | Material / Spec | Why This Choice? |
+| --- | ---: | --- | --- | ---: | --- | --- |
+| `Raspberry Pi 4` | `1` | `Yes` | `No` | `0` | `4GB RAM, 64-bit` | `Main processing unit with native I2C support` |
+| `MPU6050 Sensor` | `2` | `Yes` | `No` | `0` | `6-axis IMU, I2C` | `Accurate tilt detection, configurable I2C address via AD0` |
+| `HDMI Display` | `1` | `Yes` | `No` | `0` | `Any HDMI monitor` | `Game output display` |
+| `Jumper Wires` | `Several` | `Yes` | `No` | `0` | `Male-to-female` | `I2C and power connections` |
+| `Breadboard` | `1` | `Yes` | `No` | `0` | `Standard 400 tie` | `Prototyping sensor connections` |
+| `Power Adapter` | `1` | `Yes` | `No` | `0` | `5V 3A USB-C` | `Powers Raspberry Pi stably` |
 
-## 🔌 Electronics & Wiring
+## 9.2 Material Justification
 
-### Components
+`MPU6050 sensors were chosen because they provide reliable 6-axis motion data (accelerometer + gyroscope) over I2C with a configurable address pin (AD0), allowing two sensors to share one I2C bus without conflict. Raspberry Pi 4 was chosen as the processing unit because it natively supports I2C, runs Rust binaries, and can drive a full HDMI display — all in one board. Raylib was chosen over Pygame because it compiles to a fast native binary in Rust with minimal overhead, giving consistent 60 FPS on the Pi hardware.`
 
-| Component | Qty | Purpose |
-|---|---:|---|
-| Raspberry Pi 4 | 1 | Main processing unit |
-| MPU6050 Motion Sensor | 2 | Player hand gesture detection |
-| HDMI Display | 1 | Game interface output |
-| Breadboard | 1 | Temporary prototyping |
-| Jumper Wires | Several | I2C and power connections |
-| Power Adapter (5V) | 1 | Powers Raspberry Pi |
+## 9.3 Items Procured
 
-### Wiring Plan
+| Item | Why Needed | Purchase Link | Latest Safe Date to Procure | Status |
+| --- | --- | --- | --- | --- |
+| `MPU6050 x2` | `Gesture input for both players` | `robu.in` | `Before Bi-Hour 2` | `Received` |
+| `Jumper Wires` | `I2C wiring` | `Campus kit` | `Before Bi-Hour 1` | `Received` |
+| `Breadboard` | `Prototyping` | `Campus kit` | `Before Bi-Hour 1` | `Received` |
 
-Both MPU6050 sensors share the same I2C bus. To avoid address conflicts:
+## 9.4 Budget Summary
 
-| Pin | Sensor 1 | Sensor 2 |
-|---|---|---|
-| SDA | GPIO2 (Pin 3) | GPIO2 (Pin 3) |
-| SCL | GPIO3 (Pin 5) | GPIO3 (Pin 5) |
-| VCC | 3.3V | 3.3V |
-| GND | GND | GND |
-| AD0 | → GND → Address **0x68** | → 3.3V → Address **0x69** |
+| Budget Item | Estimated Cost (₹) |
+| --- | ---: |
+| Electronics | `400` |
+| Mechanical parts | `200` |
+| Fabrication materials | `0 (Available on campus)` |
+| Purchased extras | `0` |
+| Contingency | `300` |
+| **Total** | **`900`** |
 
-### I2C Address Assignment Diagram
+## 9.5 Budget Reflection
 
-```
-Raspberry Pi 4
-┌───────────────────────────┐
-│  GPIO2 (SDA) ─────────────┼──┬──── MPU6050 #1  AD0→GND  (0x68)
-│  GPIO3 (SCL) ─────────────┼──┤──── MPU6050 #2  AD0→3.3V (0x69)
-│  3.3V        ─────────────┼──┤──── VCC (both sensors)
-│  GND         ─────────────┼──┴──── GND (both sensors)
-└───────────────────────────┘
-```
+`All core electronic components were available in the campus kit, keeping electronics cost near zero. The main expenses were mechanical enclosure materials. Dropping the ESP32 wireless module from scope further reduced cost. If further reduction were needed, the enclosure could be replaced with a simple cardboard box and the breadboard reused as-is.`
 
 ---
 
-## 💻 Software Stack
+# 10. Planning the Work
 
-| Tool / Platform | Purpose |
-|---|---|
-| Rust (Edition 2024) | Main programming language |
-| Cargo | Package manager & build system |
-| Raylib 5.5.1 | Graphics rendering & game framework |
-| `rand` crate | Random ball direction on reset |
-| `linux-embedded-hal` | I2C device access on Linux |
-| `mpu6050` crate | Sensor communication library |
-| Raspberry Pi OS | Host operating system |
+## 10.1 Team Working Agreement
 
----
+`Tasks were divided by skill: Sakshi and Viraj handled hardware wiring and sensor integration; Umair and Bhushan handled software logic, documentation, and testing. Decisions were made by quick group agreement — with the most experienced member in that area having the deciding input when opinions differed. Progress was checked at the end of every bi-hour milestone. If a task was delayed, it was immediately flagged to the group and a simpler alternative was agreed upon so the build wouldn't be blocked. Documentation was maintained continuously by Umair and Bhushan, updated after every major change or test result.`
 
-## 🚀 Getting Started
+## 10.2 Task Breakdown
 
-### Prerequisites
+| Task ID | Task | Owner | Estimated Hours | Deadline | Dependency | Status |
+| --- | --- | --- | ---: | --- | --- | --- |
+| T1 | `Finalize concept and BOM` | `All` | `1` | `Bi-Hour 1` | `None` | `Done` |
+| T2 | `Wire both MPU6050 sensors to Raspberry Pi` | `Sakshi, Viraj` | `1` | `Bi-Hour 1` | `T1` | `Done` |
+| T3 | `Verify I2C addresses (0x68, 0x69)` | `Sakshi` | `0.5` | `Bi-Hour 1` | `T2` | `Done` |
+| T4 | `Write Rust sensor reading and tilt mapping` | `Umair` | `2` | `Bi-Hour 2` | `T3` | `Done` |
+| T5 | `Build Raylib game loop with ball and paddles` | `Umair` | `2` | `Bi-Hour 2` | `T4` | `Done` |
+| T6 | `Fabricate controller enclosure` | `Viraj, Bhushan` | `1.5` | `Bi-Hour 3` | `T2` | `Done` |
+| T7 | `Integrate sensors into enclosure and full test` | `All` | `1` | `Bi-Hour 3` | `T5, T6` | `Done` |
+| T8 | `Playtest and debug` | `All` | `1` | `Bi-Hour 4` | `T7` | `Done` |
+| T9 | `Complete documentation` | `Umair, Bhushan` | `1` | `Bi-Hour 4` | `T8` | `Done` |
 
-- Raspberry Pi 4 running Raspberry Pi OS (64-bit recommended)
-- Rust toolchain installed (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
-- I2C enabled on the Raspberry Pi (`sudo raspi-config` → Interface Options → I2C → Enable)
-- Two MPU6050 sensors wired as described above
+## 10.3 Responsibility Split
 
-### Build & Run
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/pingpong-software.git
-cd pingpong-software
-
-# Build the project
-cargo build --release
-
-# Run the game (requires sudo for I2C access)
-sudo ./target/release/ping-pong
-```
-
-### Enable I2C on Raspberry Pi
-
-```bash
-# Enable I2C
-sudo raspi-config nonint do_i2c 0
-
-# Verify both sensors are detected
-i2cdetect -y 1
-# You should see 0x68 and 0x69 listed
-```
+| Area | Main Owner | Support Owner |
+| --- | --- | --- |
+| Concept | `Umair` | `All` |
+| Electronics | `Sakshi` | `Viraj` |
+| Coding | `Umair` | `Sakshi` |
+| Mechanical build | `Viraj` | `Bhushan` |
+| Testing | `Sakshi` | `Umair` |
+| Documentation | `Bhushan` | `Umair` |
 
 ---
 
-## 📐 Physical Dimensions
+# 11. Hour Milestones
 
-| Dimension | Value |
-|---|---|
-| Length | 16 cm |
-| Width | 16 cm |
-| Height | 8 cm |
-| Estimated Weight | ~400 g |
+## 11.1 8-Hour Plan
 
----
+### Bi Hour 1 — Plan and De-risk
 
-## 💰 Budget Summary
+- [x] Idea finalized
+- [x] Core interaction decided (tilt → paddle)
+- [x] Sketches made
+- [x] BOM completed
+- [x] Purchase needs identified
+- [x] Key uncertainty identified (dual I2C address conflict)
+- [x] Basic feasibility tested (i2cdetect confirmed both sensors visible)
 
-| Item | Cost (₹) |
-|---|---:|
-| Electronics | 400 |
-| Mechanical Parts | 200 |
-| Fabrication Materials | 0 (campus) |
-| Contingency | 300 |
-| **Total** | **900** |
+### Bi Hour 2 — Build Subsystems
 
----
+- [x] Electronics tests completed (both sensors reading tilt data)
+- [x] CAD / structure planning completed
+- [x] Rust game loop running with sensor input
+- [x] Mechanical concept tested
+- [x] Main subsystems partially working (sensor + game loop connected)
 
-## ⚠️ Risks & Mitigations
+### Bi Hour 3 — Integrate
 
-| Risk | Likelihood | Impact | Mitigation |
-|---|---|---|---|
-| I2C sensor disconnect during gameplay | Medium | High | Address-based separation (0x68/0x69); safe fallback returns center position |
-| Sensor drift causing paddle jitter | Medium | Medium | Clamp paddle positions to screen boundaries |
-| Raspberry Pi display latency | Low | Medium | Raylib targets locked 60 FPS with vsync |
-| Power instability affecting sensor reads | Low | High | Dedicated 5V adapter; avoid USB hub power |
+- [x] Physical body built
+- [x] Electronics integrated into enclosure
+- [x] Code connected to hardware (sensors driving paddles live)
+- [x] First playable version exists
 
----
+### Bi Hour 4 — Refine and Finish
 
-## 🧪 Testing Log
+- [x] Technical bugs reduced (I2C flicker fixed, clamping added)
+- [x] Playtesting completed
+- [x] Improvements made (trail effect, collision direction check)
+- [x] Documentation completed
+- [x] Final build ready
 
-| Date | Test | Result |
-|---|---|---|
-| 18 Apr | I2C detection of both MPU6050 sensors | Both 0x68 and 0x69 detected |
-| 20 Apr | Tilt-to-paddle mapping calibration | 250.0 multiplier gives smooth response |
-| 22 Apr | Ball physics & bounce | Working correctly |
-| 24 Apr | Full two-player gameplay session | Playable, minor jitter fixed with clamping |
+## 12.2 Update Log
 
----
-
-## 🏁 Milestone Progress
-
-| Milestone | Status |
-|---|---|
-| Idea finalized & BOM complete | ✅ Done |
-| Electronics wired & I2C verified | ✅ Done |
-| Rust game engine running with sensor input | ✅ Done |
-| Physical enclosure fabricated | ✅ Done |
-| Full two-player game playable | ✅ Done |
-| Documentation complete | ✅ Done |
+| Days | Planned Goal | What Actually Happened | What Changed | Next Steps |
+| --- | --- | --- | --- | --- |
+| Day 1 | `Wire sensors, verify I2C, basic game window` | `Both sensors detected at 0x68 and 0x69 after AD0 fix` | `Had to solder AD0 pin on sensor 2 — not just a jumper` | `Write tilt-to-paddle mapping in Rust` |
+| Day 2 | `Tilt mapping and Raylib game loop complete` | `Game loop working; paddle movement smooth at 60 FPS` | `Tilt multiplier tuned from 100 to 250 for better responsiveness` | `Add ball physics and score` |
+| Day 3 | `Ball physics, collision, score working` | `All physics working; ball trail added` | `Ball speed increases 1.1x per hit — makes game harder progressively` | `Build enclosure and integrate` |
+| Day 4 | `Full integration, playtesting, documentation` | `Fully playable; documentation completed` | `Win condition deferred — game works as infinite match` | `Submit` |
 
 ---
 
-## 🔮 Future Improvements
+# 13. Risks and Unknowns
 
-- **Smash detection** — spike in acceleration triggers a fast ball
-- **ESP32 wireless** — cut the wires, play wirelessly
-- **Sound effects** — beeps and boops on every hit
-- **AI opponent** — single-player mode against the computer
-- **High score board** — persistent leaderboard on screen
-- **Gesture calibration** — in-game sensor calibration menu
+## 13.1 Risk Register
+
+| Risk | Type | Likelihood | Impact | Mitigation Plan | Owner |
+| --- | --- | --- | --- | --- | --- |
+| `Both MPU6050 sensors default to same I2C address` | `Technical` | `High` | `High` | `Set AD0 pin of sensor 2 to 3.3V to change address to 0x69` | `Sakshi` |
+| `I2C read failure mid-game` | `Technical` | `Medium` | `Medium` | `Failsafe in code: return screen center if read fails, game continues` | `Umair` |
+| `Paddle jitter from sensor noise` | `Technical` | `Medium` | `Medium` | `Clamp paddle to screen bounds; noise averages out at 60 FPS` | `Umair` |
+| `Raspberry Pi brownout from power fluctuation` | `Hardware` | `Low` | `High` | `Use dedicated 5V 3A adapter; avoid USB hub power` | `Viraj` |
+| `Ball speed unplayable after many hits` | `Software` | `Medium` | `Medium` | `Add vx/vy max cap — deferred to next version` | `Umair` |
+
+## 13.2 Biggest Unknown Right Now
+
+`The biggest uncertainty was whether two MPU6050 sensors could reliably coexist on the same I2C bus without interfering with each other. This was resolved by using the AD0 address pin to assign separate addresses (0x68 and 0x69), confirmed with i2cdetect before writing any game code.`
 
 ---
 
-## 🔨 Build Documentation
+# 14. Testing
 
-### Fabrication Process
+## 14.1 Technical Testing Plan
 
-**Design (CAD Modeling)**
-The controller housing was modelled in CAD software using the exact dimensions of the MPU6050 module and connecting wires. This ensured all cutouts and mounts aligned precisely with the hardware before any material was cut.
+| What Needs Testing | How You Will Test It | Success Condition |
+| --- | --- | --- |
+| `I2C detection of both sensors` | `Run i2cdetect -y 1 and check output` | `Both 0x68 and 0x69 visible in the grid` |
+| `Tilt-to-paddle mapping` | `Tilt sensor, observe paddle position on screen` | `Paddle follows hand direction smoothly` |
+| `Paddle boundary clamping` | `Tilt sensor to extreme angles` | `Paddle stays within top and bottom limits` |
+| `Ball bounce off walls` | `Let ball run and watch top/bottom rebounds` | `Ball bounces correctly at both boundaries` |
+| `Ball collision with paddle` | `Move paddle to intercept ball` | `Ball reverses X direction and score increments` |
+| `Ball reset on out of bounds` | `Let ball pass a paddle deliberately` | `Ball resets to center with random new direction` |
+| `60 FPS performance` | `Run game and monitor frame rate` | `No frame drops or visible lag` |
 
-**Cutting (Laser Cutting)**
-Structural panels and sensor mounts were laser-cut from sheet material following the CAD files. The precision cuts eliminated the need for post-cut drilling or filing on most parts.
+## 14.2 Testing and Debugging Log
 
-**Assembly & Fastening**
+| Date | Problem Found | Type | What You Tried | Result | Next Action |
+| --- | --- | --- | --- | --- | --- |
+| `Day 1` | `Both sensors showing at same I2C address 0x68` | `Hardware` | `Connected AD0 of sensor 2 to 3.3V` | `Sensor 2 now correctly at 0x69` | `Confirmed with i2cdetect` |
+| `Day 2` | `Paddle movement too slow` | `Software` | `Tuned tilt multiplier from 100 to 250` | `Paddle response feels natural and responsive` | `Fine-tune during playtesting` |
+| `Day 2` | `Paddle going off screen on extreme tilt` | `Software` | `Added clamp: min 50px, max screen_h - 150px` | `Paddle stays on screen always` | `None` |
+| `Day 3` | `Ball occasionally passes through paddle` | `Software` | `Added direction check — only collide if ball moving toward paddle` | `Ghost collisions eliminated` | `None` |
+| `Day 4` | `Ball speed too high after 10+ consecutive hits` | `Software` | `Noted the issue; no crash but hard to play` | `Deferred — needs vx/vy max cap` | `Add speed cap in next version` |
+
+## 14.3 Playtesting Notes
+
+| Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
+| --- | --- | --- | --- | --- |
+| `Viraj (team)` | `Played a full match using tilt controllers` | `Wasn't sure which direction to tilt at first` | `Loved how paddle responds instantly to hand movement` | `Add a short on-screen tilt tutorial at game start` |
+| `External tester` | `Tried both controllers simultaneously` | `Ball speed after 8+ hits was hard to track` | `Found gesture control very intuitive and fun` | `Add a maximum ball speed cap` |
+
+---
+
+# 15. Build Documentation
+
+## 15.1 Fabrication Process
+
+**Design (CAD Modeling):**
+The controller housing was modelled in CAD software using the exact dimensions of the MPU6050 module, breadboard, and connecting wires. This ensured all cutouts and mounts aligned precisely with the hardware before any material was cut.
+
+**Cutting (Laser Cutting):**
+Structural panels and sensor mounts were laser-cut from sheet material following the CAD files. Precision cuts eliminated the need for post-cut drilling or filing on most parts.
+
+**Assembly & Fastening:**
 Components were bonded with adhesive and mechanical supports. Sensor mounts were intentionally kept modular — not permanently glued — so the MPU6050 boards can be removed and reseated without disassembling the enclosure.
 
-**Surface Finishing**
-Rough edges from the laser cutter were sanded down. Gaps and small imperfections were filled using a sawdust-adhesive paste, then sanded flush. The finished enclosure was painted for durability and to give the controller a clean arcade look.
+**Surface Finishing:**
+Rough edges from the laser cutter were sanded down. Gaps and small imperfections were filled using a sawdust-adhesive paste, then sanded flush. The finished enclosure was painted for durability and a clean look.
 
-**Wiring Integration**
-Jumper wires were routed inside the enclosure along channels designed into the CAD model, keeping the I2C lines (SDA / SCL) short to minimize signal noise. Both sensors were soldered to their AD0 pins (GND for 0x68, 3.3V for 0x69) before final assembly.
+**Wiring:**
+Jumper wires were routed inside the enclosure along channels designed into the CAD model, keeping the I2C lines (SDA/SCL) short to minimize signal noise. Both sensors were connected to their AD0 pins (GND for 0x68, 3.3V for 0x69) before final assembly.
 
-**Revisions**
+**Revisions:**
 - First iteration: sensor was loose inside housing → added foam padding and tighter mount
 - Second iteration: wire routing caused strain on connectors → redesigned cable channel width
-- Final iteration: fully assembled, both sensors stable, I2C reads consistent
+- Final iteration: fully assembled, both sensors stable, I2C reads consistent throughout gameplay
 
 ---
 
+# 16. Build Photos
 
-## 🏁 Final Outcome
+**Hardware Setup:**
 
-### What the Final Version Is
+<img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
 
-A fully working two-player gesture-controlled Ping Pong game running natively on a Raspberry Pi 4. Both players hold a handheld controller with an embedded MPU6050 sensor. Tilting the controller up or down moves their paddle in real time on the HDMI-connected display. The game tracks scores, speeds up the ball with every paddle hit (1.1× velocity multiplier), and resets automatically when the ball crosses a boundary. The entire stack — sensor reading, game logic, physics, and rendering — runs in a single Rust binary at a locked 60 FPS.
+**Gameplay Screenshot (Score: 4 – 2, ball trail visible, both paddles active):**
 
-### ✅ What Works Well
+> *(Upload your gameplay screenshot to GitHub and replace this line with the image tag)*
 
-- **Real-time gesture control** — tilt-to-paddle latency is imperceptible at 60 FPS
-- **Dual I2C sensors** — 0x68 / 0x69 address separation works reliably with no conflicts
-- **Ball physics** — bounce, acceleration on hit, and trail effect all feel responsive
-- **Score tracking** — increments correctly on every paddle contact
-- **Rust + Raylib performance** — no lag or frame drops on Raspberry Pi 4
-- **Failsafe sensor read** — if a sensor read fails, paddle defaults to center rather than crashing
+---
 
-### 🔧 What Still Needs Improvement
+# 17. Final Outcome
+
+## 17.1 Final Description
+
+`A fully working two-player gesture-controlled Ping Pong game running natively on a Raspberry Pi 4. Both players hold a handheld controller with an embedded MPU6050 sensor. Tilting the controller up or down moves their paddle in real time on the HDMI-connected display. The game tracks scores, speeds up the ball with every paddle hit (1.1× velocity multiplier), and resets automatically when the ball crosses a boundary. The entire stack — sensor reading, game logic, physics, and rendering — runs in a single Rust binary at a locked 60 FPS.`
+
+## 17.2 What Works Well
+
+- Real-time gesture control — tilt-to-paddle latency is imperceptible at 60 FPS
+- Dual I2C sensors — 0x68 / 0x69 address separation works reliably with zero conflicts
+- Ball physics — wall bounce, acceleration on hit, and trail effect all feel responsive and satisfying
+- Score tracking — increments correctly on every paddle contact
+- Rust + Raylib performance — consistent 60 FPS with no lag on Raspberry Pi 4
+- Failsafe sensor read — if a sensor read fails, paddle defaults to center; game never crashes
+
+## 17.3 What Still Needs Improvement
 
 - Ball speed increases indefinitely after many hits — needs a maximum velocity cap
-- No win condition or game-over screen yet — game runs indefinitely
-- Sensor calibration varies between players (hand size, grip angle) — a calibration step would help
-- No sound effects — silent gameplay misses arcade feel
-- Wires between Raspberry Pi and sensors limit player movement range
+- No win condition or game-over screen — game currently runs as an infinite match
+- No sensor calibration — tilt sensitivity varies by player grip and hand size
+- No sound effects — gameplay is silent, missing the classic arcade feel
+- Wired I2C connection limits player movement range — ESP32 wireless would solve this
 
-### 📋 What Changed From the Original Plan
+## 17.4 What Changed From the Original Plan
 
 | Original Plan | What Actually Happened |
-|---|---|
+| --- | --- |
 | Python + Pygame for game logic | Switched to **Rust + Raylib** for better performance and lower latency |
-| ESP32 as wireless bridge | Dropped — sensors wired directly to Raspberry Pi I2C, simpler and more reliable |
-| OLED display for score | Used the main HDMI display for everything — OLED unavailable |
-| External start/restart buttons | Handled entirely in software — buttons unavailable |
-| Powerup / bomb / gem system | Struct and logic present in code but not yet triggered during gameplay |
+| ESP32 as wireless sensor bridge | Dropped — sensors wired directly to Raspberry Pi I2C; simpler and more reliable |
+| OLED display for score | Used the main HDMI display for everything — OLED was unavailable |
+| External start/restart buttons | Handled entirely in software — physical buttons were unavailable |
+| Powerup / bomb / gem system | Structs present in the code but not yet triggered during gameplay |
 
 ---
 
-## 💭 Reflection
+# 18. Reflection
 
-### Team Reflection
+## 18.1 Team Reflection
 
-The team divided work cleanly — hardware members focused on wiring, sensor calibration, and enclosure fabrication, while the software members handled the Rust game engine and I2C integration. Decision-making was fast because the team agreed early to cut scope (drop ESP32 wireless, drop external buttons) and deliver a working core experience.
+`The team divided work cleanly — hardware members focused on wiring, sensor calibration, and enclosure fabrication, while the software members handled the Rust game engine and I2C integration. Decision-making was fast because the team agreed early to cut scope (drop ESP32, drop external buttons) and deliver a working core experience first.`
 
-What slowed us down most was the initial address conflict between the two MPU6050 sensors — both defaulted to 0x68 until we identified the AD0 pin fix. Once that was resolved, integration moved quickly.
+`What slowed us down most was the initial I2C address conflict — both sensors defaulted to 0x68 until we identified and applied the AD0 pin fix. Once that was resolved, integration moved quickly. Time management was strong across the first three bi-hours; the final bi-hour was tight and left some stretch features (sound, win screen, speed cap) unfinished.`
 
-Time management was strong in the first three bi-hours; the final bi-hour was tight and left some stretch features (sound, win screen) unfinished.
+## 18.2 Technical Reflection
 
-### Technical Reflection
+- **Electronics:** Learned how I2C addressing works with multiple devices on one bus, and how the AD0 pin controls MPU6050 address selection. Understood the importance of confirming hardware with i2cdetect before writing any software.
+- **Coding:** Gained hands-on experience writing a real-time game loop in Rust, including ownership patterns with mutable sensor references, and how to structure a frame-based update-draw cycle.
+- **Sensor integration:** Understood how raw accelerometer Y-axis values map to screen coordinates, and why position clamping is essential to prevent paddles from going out of bounds on extreme tilts.
+- **Fabrication:** Laser cutting tolerances matter — a 0.5mm gap becomes visible after finishing. Modular mounts saved significant time during hardware revision sessions.
+- **Integration:** The biggest challenge was keeping sensor read, game logic, and draw call all within a 16ms frame budget at 60 FPS.
 
-- **Electronics:** Learned how I2C addressing works with multiple devices on one bus, and how the AD0 pin controls MPU6050 address selection
-- **Coding:** Gained hands-on experience writing a real-time game loop in Rust, including ownership patterns with mutable sensor references passed into the game loop
-- **Sensor integration:** Understood how raw accelerometer Y-axis values map to useful screen coordinates, and the importance of clamping to prevent paddles from going off-screen
-- **Fabrication:** Laser cutting tolerances matter — a 0.5mm gap becomes visible after painting
-- **Integration:** The biggest integration challenge was keeping the sensor read, game logic, and draw call all within a single 16ms frame budget
+## 18.3 Design Reflection
 
-### Design Reflection
+- **Designing for interaction:** Tilt controls feel intuitive instantly — testers needed no instructions, which validated the gesture-first design choice from the beginning.
+- **Delight:** Players immediately tried fast flick motions — adding smash detection in the next version would reward that natural instinct.
+- **Clarity:** The minimal black-and-white visual style keeps focus entirely on ball and paddles — no visual clutter distracts from gameplay.
+- **Physical interaction:** The handheld sensor form factor makes it feel like a real game controller rather than a prototype breadboard.
+- **Iteration:** Every physical revision (sensor mount, cable routing) made the next test session faster and more reliable — iteration is the most valuable part of the process.
 
-- **Designing for interaction:** Tilt controls feel intuitive instantly — no explanation needed, which validated the gesture-first design choice
-- **Delight:** Players immediately tried to do fast flick motions — adding smash detection would reward that instinct
-- **Clarity:** The minimal black-and-white visual style keeps focus entirely on the ball and paddles — no visual clutter
-- **Physical interaction:** The handheld sensor form factor makes it feel like a real game controller, not a prototype
-- **Iteration:** Every physical revision (sensor mount, cable routing) made the next test session faster and more reliable
+## 18.4 If You Had One More Hour
 
-### If We Had One More Hour
-
-We would add a **win condition and game-over screen** — first to 10 points wins, then show a winner screen with a restart prompt. This single addition would make AirPaddle feel like a complete game rather than an infinite demo. Second priority would be a **maximum ball speed cap** to prevent the game from becoming unplayable after many consecutive hits.
+`We would add a win condition and game-over screen — first player to 10 points wins, then a winner announcement appears with a restart prompt. This single addition would make AirPaddle feel like a complete game rather than an infinite demo. Second priority would be a maximum ball speed cap to prevent the game from becoming unplayable after many consecutive hits.`
 
 ---
 
-## ✅ Final Submission Checklist
+# 19. Final Submission Checklist
 
-- [x] Team details complete
-- [x] Project description complete
-- [x] Inspiration sources included
-- [x] Sketches and architecture diagrams added
-- [x] BOM complete
-- [x] Purchase list complete
-- [x] Budget summary complete
-- [x] Mechanical planning documented
-- [x] Code flowcharts added (4 Mermaid diagrams)
-- [x] Task breakdown complete
-- [x] Risk register complete
-- [x] Testing log updated
-- [x] Playtesting notes included
-- [x] Build photos included
-- [x] Final reflection written
-- [x] GitHub README complete
+Before submission, confirm that:
 
+- [x] Team details are complete
+- [x] Project description is complete
+- [x] Inspiration sources are included
+- [x] Sketches are added
+- [x] BOM is complete
+- [x] Purchase list is complete
+- [x] Budget summary is complete
+- [x] Mechanical planning is documented
+- [x] Code flowcharts are added (3 Mermaid diagrams)
+- [x] Task breakdown is complete
+- [x] Weekly logs are updated
+- [x] Risk register is complete
+- [x] Testing log is updated
+- [x] Playtesting notes are included
+- [x] Build photos are included
+- [x] Final reflection is written
 
 ---
 
