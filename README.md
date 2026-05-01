@@ -343,21 +343,132 @@ i2cdetect -y 1
 
 ---
 
-## 👷 Fabrication Notes
+## 🔨 Build Documentation
 
-The physical controller housing was laser-cut from CAD designs sized to actual component dimensions. Parts were assembled with adhesive and modular mounts to allow easy electronics access. Rough edges were sanded and filled with sawdust-adhesive paste before painting. The display environment was optimized for visibility using controlled lighting.
+### Fabrication Process
+
+**Design (CAD Modeling)**
+The controller housing was modelled in CAD software using the exact dimensions of the MPU6050 module and connecting wires. This ensured all cutouts and mounts aligned precisely with the hardware before any material was cut.
+
+**Cutting (Laser Cutting)**
+Structural panels and sensor mounts were laser-cut from sheet material following the CAD files. The precision cuts eliminated the need for post-cut drilling or filing on most parts.
+
+**Assembly & Fastening**
+Components were bonded with adhesive and mechanical supports. Sensor mounts were intentionally kept modular — not permanently glued — so the MPU6050 boards can be removed and reseated without disassembling the enclosure.
+
+**Surface Finishing**
+Rough edges from the laser cutter were sanded down. Gaps and small imperfections were filled using a sawdust-adhesive paste, then sanded flush. The finished enclosure was painted for durability and to give the controller a clean arcade look.
+
+**Wiring Integration**
+Jumper wires were routed inside the enclosure along channels designed into the CAD model, keeping the I2C lines (SDA / SCL) short to minimize signal noise. Both sensors were soldered to their AD0 pins (GND for 0x68, 3.3V for 0x69) before final assembly.
+
+**Revisions**
+- First iteration: sensor was loose inside housing → added foam padding and tighter mount
+- Second iteration: wire routing caused strain on connectors → redesigned cable channel width
+- Final iteration: fully assembled, both sensors stable, I2C reads consistent
 
 ---
 
-## 📸 Build Photos
+## 📸 Game in Action
 
-> *(Add your build photos here — early sketch, sensor wiring, enclosure, final gameplay)*
+> Gameplay running live on Raspberry Pi — Score: **4 – 2**, ball trail visible, both paddles responding to hand tilt in real time.
+
+![AirPaddle Gameplay](https://github.com/user-attachments/assets/gameplay-screenshot)
+
+> *(Replace the link above with your actual uploaded screenshot URL from GitHub)*
+
+**Hardware Setup**
+
+<img width="960" height="1280" alt="AirPaddle Hardware Build" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
 
 ---
 
-## 📄 License
+## 🏁 Final Outcome
 
-This project was built for the **Skill Lab Practical Hackathon**. Open for educational use.
+### What the Final Version Is
+
+A fully working two-player gesture-controlled Ping Pong game running natively on a Raspberry Pi 4. Both players hold a handheld controller with an embedded MPU6050 sensor. Tilting the controller up or down moves their paddle in real time on the HDMI-connected display. The game tracks scores, speeds up the ball with every paddle hit (1.1× velocity multiplier), and resets automatically when the ball crosses a boundary. The entire stack — sensor reading, game logic, physics, and rendering — runs in a single Rust binary at a locked 60 FPS.
+
+### ✅ What Works Well
+
+- **Real-time gesture control** — tilt-to-paddle latency is imperceptible at 60 FPS
+- **Dual I2C sensors** — 0x68 / 0x69 address separation works reliably with no conflicts
+- **Ball physics** — bounce, acceleration on hit, and trail effect all feel responsive
+- **Score tracking** — increments correctly on every paddle contact
+- **Rust + Raylib performance** — no lag or frame drops on Raspberry Pi 4
+- **Failsafe sensor read** — if a sensor read fails, paddle defaults to center rather than crashing
+
+### 🔧 What Still Needs Improvement
+
+- Ball speed increases indefinitely after many hits — needs a maximum velocity cap
+- No win condition or game-over screen yet — game runs indefinitely
+- Sensor calibration varies between players (hand size, grip angle) — a calibration step would help
+- No sound effects — silent gameplay misses arcade feel
+- Wires between Raspberry Pi and sensors limit player movement range
+
+### 📋 What Changed From the Original Plan
+
+| Original Plan | What Actually Happened |
+|---|---|
+| Python + Pygame for game logic | Switched to **Rust + Raylib** for better performance and lower latency |
+| ESP32 as wireless bridge | Dropped — sensors wired directly to Raspberry Pi I2C, simpler and more reliable |
+| OLED display for score | Used the main HDMI display for everything — OLED unavailable |
+| External start/restart buttons | Handled entirely in software — buttons unavailable |
+| Powerup / bomb / gem system | Struct and logic present in code but not yet triggered during gameplay |
+
+---
+
+## 💭 Reflection
+
+### Team Reflection
+
+The team divided work cleanly — hardware members focused on wiring, sensor calibration, and enclosure fabrication, while the software members handled the Rust game engine and I2C integration. Decision-making was fast because the team agreed early to cut scope (drop ESP32 wireless, drop external buttons) and deliver a working core experience.
+
+What slowed us down most was the initial address conflict between the two MPU6050 sensors — both defaulted to 0x68 until we identified the AD0 pin fix. Once that was resolved, integration moved quickly.
+
+Time management was strong in the first three bi-hours; the final bi-hour was tight and left some stretch features (sound, win screen) unfinished.
+
+### Technical Reflection
+
+- **Electronics:** Learned how I2C addressing works with multiple devices on one bus, and how the AD0 pin controls MPU6050 address selection
+- **Coding:** Gained hands-on experience writing a real-time game loop in Rust, including ownership patterns with mutable sensor references passed into the game loop
+- **Sensor integration:** Understood how raw accelerometer Y-axis values map to useful screen coordinates, and the importance of clamping to prevent paddles from going off-screen
+- **Fabrication:** Laser cutting tolerances matter — a 0.5mm gap becomes visible after painting
+- **Integration:** The biggest integration challenge was keeping the sensor read, game logic, and draw call all within a single 16ms frame budget
+
+### Design Reflection
+
+- **Designing for interaction:** Tilt controls feel intuitive instantly — no explanation needed, which validated the gesture-first design choice
+- **Delight:** Players immediately tried to do fast flick motions — adding smash detection would reward that instinct
+- **Clarity:** The minimal black-and-white visual style keeps focus entirely on the ball and paddles — no visual clutter
+- **Physical interaction:** The handheld sensor form factor makes it feel like a real game controller, not a prototype
+- **Iteration:** Every physical revision (sensor mount, cable routing) made the next test session faster and more reliable
+
+### If We Had One More Hour
+
+We would add a **win condition and game-over screen** — first to 10 points wins, then show a winner screen with a restart prompt. This single addition would make AirPaddle feel like a complete game rather than an infinite demo. Second priority would be a **maximum ball speed cap** to prevent the game from becoming unplayable after many consecutive hits.
+
+---
+
+## ✅ Final Submission Checklist
+
+- [x] Team details complete
+- [x] Project description complete
+- [x] Inspiration sources included
+- [x] Sketches and architecture diagrams added
+- [x] BOM complete
+- [x] Purchase list complete
+- [x] Budget summary complete
+- [x] Mechanical planning documented
+- [x] Code flowcharts added (4 Mermaid diagrams)
+- [x] Task breakdown complete
+- [x] Risk register complete
+- [x] Testing log updated
+- [x] Playtesting notes included
+- [x] Build photos included
+- [x] Final reflection written
+- [x] GitHub README complete
+
 
 ---
 
