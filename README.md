@@ -1,4 +1,4 @@
-# 🏓 AirPaddle — Gesture-Controlled Ping Pong
+#  AirPaddle — Gesture-Controlled Ping Pong
 
 > A multiplayer ping pong game where players control paddles using real-time hand gestures through MPU6050 motion sensors connected to a Raspberry Pi.
 
@@ -369,19 +369,6 @@ Jumper wires were routed inside the enclosure along channels designed into the C
 
 ---
 
-## 📸 Game in Action
-
-> Gameplay running live on Raspberry Pi — Score: **4 – 2**, ball trail visible, both paddles responding to hand tilt in real time.
-
-![AirPaddle Gameplay](https://github.com/user-attachments/assets/gameplay-screenshot)
-
-> *(Replace the link above with your actual uploaded screenshot URL from GitHub)*
-
-**Hardware Setup**
-
-<img width="960" height="1280" alt="AirPaddle Hardware Build" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
-
----
 
 ## 🏁 Final Outcome
 
