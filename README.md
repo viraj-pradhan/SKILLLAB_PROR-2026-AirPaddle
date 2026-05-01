@@ -130,7 +130,7 @@ The HDMI display connected to the Raspberry Pi shows the live game interface, in
 
 ## 6.1 Concept Architecture / Sketch / Schematic
 
-<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/95637f31-b4e7-4427-a9e1-4b63fbeb0ac5" />
+<img width="1600" height="1200" alt="image" src="https://github.com/viraj-pradhan/SKILLLAB_PROR-2026-AirPaddle/blob/main/Archtecture.png" />
 
 ## 6.2 Labeled Build Sketch / Architecture / Flow Diagram
 
@@ -368,8 +368,8 @@ flowchart TD
 | T1 | `Finalize concept and BOM` | `All` | `1` | `Bi-Hour 1` | `None` | `Done` |
 | T2 | `Wire both MPU6050 sensors to Raspberry Pi` | `Sakshi, Viraj` | `1` | `Bi-Hour 1` | `T1` | `Done` |
 | T3 | `Verify I2C addresses (0x68, 0x69)` | `Sakshi` | `0.5` | `Bi-Hour 1` | `T2` | `Done` |
-| T4 | `Write Rust sensor reading and tilt mapping` | `Umair` | `2` | `Bi-Hour 2` | `T3` | `Done` |
-| T5 | `Build Raylib game loop with ball and paddles` | `Umair` | `2` | `Bi-Hour 2` | `T4` | `Done` |
+| T4 | `Write Rust sensor reading and tilt mapping` | `Sakshi` | `2` | `Bi-Hour 2` | `T3` | `Done` |
+| T5 | `Build Raylib game loop with ball and paddles` | `Viraj` | `2` | `Bi-Hour 2` | `T4` | `Done` |
 | T6 | `Fabricate controller enclosure` | `Viraj, Bhushan` | `1.5` | `Bi-Hour 3` | `T2` | `Done` |
 | T7 | `Integrate sensors into enclosure and full test` | `All` | `1` | `Bi-Hour 3` | `T5, T6` | `Done` |
 | T8 | `Playtest and debug` | `All` | `1` | `Bi-Hour 4` | `T7` | `Done` |
@@ -517,7 +517,7 @@ Jumper wires were routed inside the enclosure along channels designed into the C
 
 **Hardware Setup:**
 
-<img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
+<img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="" />
 
 **Gameplay Screenshot (Score: 4 – 2, ball trail visible, both paddles active):**
 
