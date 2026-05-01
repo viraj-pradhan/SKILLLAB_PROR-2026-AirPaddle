@@ -1,636 +1,364 @@
-# SKILL LAB PRATICAL HACKATHON
+# 🏓 AirPaddle — Gesture-Controlled Ping Pong
 
-# 1. Team Identity
-
-## 1.1 Studio / Group Name
-
-AirPaddle
-
-## 1.2 Team Members
-
-| Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
-| --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Viraj Pradhan` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `Shakshi Thakare`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| `Shaikh Umair`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| `Bhushan Sonawane`   | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| 
-
-## 1.3 Project Title
-
-`"Pingpong"`
-
-`(because Project-or)`
-
-<img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
-
-## 1.4 One-Line Pitch
-
-`A projected, fully customizable time portal where engineering education is done through PUBG battlefield in the comfort of our home`
-
-## 1.5 Expanded Project Idea
-
-In 1–2 paragraphs, explain:
-
-- what your project is,
-- what kind of experience it creates,
-- what technologies are involved.
-
-**Response:**  
-`A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
+> A multiplayer ping pong game where players control paddles using real-time hand gestures through MPU6050 motion sensors connected to a Raspberry Pi.
 
 ---
 
-# 2. Inspiration
+## 👥 Team Identity
 
-## 2.1 References
+**Studio / Group Name:** `AirPaddle — Group No. 21`
 
-List what inspired the project.
-
-| Source Type | Title / Link                                                        | What Inspired You                                                                         |
-| ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
-|             |                                                                     |                                                                                           |
-|             |                                                                     |                                                                                           |
-
-## 2.2 Original Twist
-
-What makes your project original?
-
-**Response:**  
-
+| Name | Primary Role | Secondary Role | Strengths |
+|---|---|---|---|
+| Sakshi Thakare | Electronics / Coding / App | Coding | Hardware |
+| Viraj Pradhan | Electronics / Fabrication | Coding | Hardware |
+| Umair Shaikh | Electronics / Coding / App | Documentation | Documentation, Communication |
+| Bhushan Sonawane | Electronics / Fabrication | Documentation | Documentation, Communication |
 
 ---
 
-# 3. Project Intent
+## 💡 One-Line Pitch
 
-## 3.1 User Journey 
-
-Describe exactly how a user will use the project.Make it a story
-**Response:**  
-
-                                                  |
-
-
+**Hand-tilt your way to victory** — two MPU6050 sensors feed live motion data to a Raspberry Pi running a Rust + Raylib game engine, moving paddles in real time.
 
 ---
 
-# 4. Definition of Success
+## 🎯 Project Idea
 
-## 4.1 Definition of “Usable”
+AirPaddle is a **gesture-controlled Ping Pong** game built using Raspberry Pi, MPU6050 motion sensors, and the Raylib graphics framework written in Rust.
 
+Instead of keyboards or joysticks, each player physically tilts a handheld controller containing an MPU6050 sensor. The sensor detects upward and downward tilt through its accelerometer. These values are read via I2C directly on the Raspberry Pi, processed in Rust, and translated to real-time paddle movement on the display.
 
-
-## 4.2 Minimum Usable Version
-
-What is the smallest version of this project that still delivers the core experience?
-
-**Response:**  
-
-
-## 4.3 Stretch Features
-
-What features are nice to have but not essential?
-
+The entire game interface — start, gameplay, score, and restart — runs on the Raspberry Pi display screen, making it a fully self-contained embedded gaming system.
 
 ---
 
-# 5. System Overview
+## ✨ Inspiration
 
-## 5.1 Project Type
+| Source | What Inspired Us |
+|---|---|
+| [Instagram Reel — Projection Mapping](https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo) | How projection mapping creates interactive digital + physical experiences |
 
-Check all that apply.
-
-- [x] Electronics-based
-
-- [ ] Mechanical
-
-- [x] Sensor-based
-
-- [x] App-connected
-
-- [x] Motorized
-
-- [ ] Sound-based
-
-- [x] Light-based
-
-- [x] Screen/UI-based
-
-- [x] Fabricated structure
-
-- [x] Game logic based
-
-- [x] Installation
-
-- [ ] Other:
-
-## 5.2 High-Level System Description
-
-Explain how the system works in simple terms.
-
-Include:
-
-- input,
-- processing,
-- output,
-- physical structure,
-- app interaction if any.
-
-**Response:**  
-
-## 5.3 Input / Output Map
-
-| System Part                              | Type            | What It Does                                                               |
-
+**Original Twist:** Unlike traditional input-device ping pong, our system uses dual MPU6050 sensors with distinct I2C addresses (0x68 / 0x69) so both players are tracked simultaneously. The tilt-to-position mapping is computed directly in Rust with no middleware, giving instant, low-latency paddle response.
 
 ---
 
-# 6. System Design, Sketches and Visual Planning 
-
-## 6.1 Concept Architecture/sketch/schematic
-
-Add an early sketch of the full idea.
-
-**Insert image below:**  
-`[Upload image and link here]`
-
-Example:
-
-```md
+## 🗺️ User Journey
 
 ```
-
-
-
-## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
-
-Add a sketch with labels showing:
-
-- structure,
-- electronics placement,
-- user touch points,
-- moving parts,
-- output elements.
-
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/95637f31-b4e7-4427-a9e1-4b63fbeb0ac5" />
-
-## 6.3 Approximate Dimensions
-
-| Dimension        | Value   |
-| ---------------- | ------- |
-| Length           | `16 cm` |
-| Width            | `16 cm` |
-| Height           | `8 cm`  |
-| Estimated weight | `400 g` |
+Player picks up sensor → Game launches on Raspberry Pi display
+        ↓
+Players tilt hands up/down → Paddles move in real time
+        ↓
+Ball bounces between paddles → Score tracked on screen
+        ↓
+Ball crosses boundary → Ball resets, game continues
+```
 
 ---
 
-# 7. Electronics Planning
+## ✅ Definition of Success
 
-## 7.1 Electronics Used
+| Version | What It Includes |
+|---|---|
+| **Minimum Usable** | Both MPU6050 sensors connected via I2C, basic Pygame/Raylib display with paddles and ball, gesture-based paddle control |
+| **Full Success** | Smooth real-time motion tracking, correct ball physics, two players competing without lag, crashes, or sensor disconnects |
 
-| Component                 | Quantity | Purpose                               |
-| ------------------------- | --------:| ------------------------------------- |
-| `[Raspi/FPGA]`                 | `1`      | `[Main controller]`                   |
-| `[L298N Motor Driver]`    | `1`      | `[Control Motors]`                    |
-| `[BO Motors]`             | `2`      | `[Rotate wheels]`                     |
-| `[Buck Converter]`        | `1`      | `[Power ESP32]`                       |
-| `[Li Ion Battery Pack]`   | `2`      | `[Power]`                             |
-| `[Projector]`             | `1`      | `[Display obstacles]`                 |
-| `Camera (Webcam / Phone)` | `1`      | `[Tracks car position using markers]` |
-
-## 7.2 Wiring Plan
-
-Describe the main electrical connections.
-
-**sample Response:**  
-`The RASPI is connected to the motor driver (L298N) using four GPIO pins (18,19; 22,23) to control motor direction (IN1, IN2, IN3, IN4). Two PWM-capable pins (ENA and ENB; 25 and 26) are connected to control the speed of each motor.
-
-The motors are connected to the output terminals of the motor driver. The motor driver is powered directly by the battery pack (higher voltage), while the ESP32 receives regulated 5V from the buck converter.
-
-All components share a common ground to ensure stable operation. The projector and camera are connected to the laptop, which handles tracking and game logic separately.`
-
-## 7.3 Circuit Diagram/architecture diagram
-
-Insert a hand-drawn or software-made circuit diagram.
-
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="867" height="1156" alt="" src="" />
-
-
-# 7.4. Power Plan
-
-| Question         | Response                                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Battery (Li-ion pack)`                                                                                                                           |
-| Voltage required | `~6–8.4V for motors (via driver), stepped down to 5V for ESP32 (buck converter)`                                                                  |
-| Current concerns | `Motors can draw high current under load, which may cause voltage drops affecting ESP32 and WiFi stability`                                       |
-| Safety concerns  | `Avoid over-discharging Li-ion batteries, ensure proper voltage regulation, prevent short circuits, and secure wiring to avoid loose connections` |
+### 🚀 Stretch Features
+- Smash detection using sudden acceleration spikes
+- Scoreboard system with win tracking
+- Sound effects and background music
+- AI single-player mode
+- Real-time motion visualization graphs
+- Wireless sensor communication via ESP32
+- Gesture calibration menu
+- Full-screen arcade mode
 
 ---
 
-# 8. Software Planning/
+## 🏗️ System Overview
 
-## 8.1 Software Tools
+**Project Type:** Electronics-based · Sensor-based · Screen/UI-based · Game logic · Fabricated structure · Sound-based
 
-| Tool / Platform                | Purpose                                        |
-| ------------------------------ | ---------------------------------------------- |
-| `[MicroPython]`                | `Control ESP32`                                |
-| `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
-| `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
-|                                |                                                |
+### Input / Output Map
 
-## 8.2 Software Logic/Algorithm
-
-Describe what the code must do.
-
-Include:
-
-- startup behavior,
-- input handling,
-- sensor reading,
-- decision logic,
-- output behavior,
-- communication logic,
-- reset behavior.
-
-**Response:**  
-`
-
-- **Sample Startup behavior:**  
-  The Raspi/FPGA initializes motor pins, PWM control, and starts a WiFi access point with a web server. The laptop initializes camera input, tracking system, and projection mapping.
-- **Input handling:**  
-  Movement commands are received from the laptop (pygame sends http requests)
-- **Sensor reading:**  
-  The camera continuously captures frames, and OpenCV detects ArUco markers to determine the car’s position and orientation.
-- **Decision logic:**  
-  The system maps the car’s position into a virtual coordinate system and checks for nearby obstacles or collisions. If movement is valid, the command is allowed; if not, it is blocked or replaced with a feedback action (like a slight shake).
-- **Output behavior:**  
-  The ESP32 drives the motors using PWM signals to control speed and direction. The projector displays the updated game environment, including obstacles, targets, and feedback visuals.
-- **Communication logic:**  
-  The laptop sends HTTP requests (e.g., `/forward`, `/left`) to the ESP32 over WiFi. The ESP32 parses these commands and executes motor actions.
-- **Reset behavior:**  
-  If no command is received within a short timeout, the ESP32 stops the motors. The game resets when a level is completed or restarted.`
-
-## 8.3 Code Flowchart
-
-Insert a flowchart showing your code logic.
-
-Suggested sequence:
-
-- start,
-- initialize,
-- wait for input,
-- read input,
-- decision,
-- trigger output,
-- repeat or reset,
-- error handling.
-
-**Insert image below:**  
-<img width="1600" height="1200" alt="image" src="" />
-<img width="1600" height="1200" alt="image" src="" />
-
-
-
-
-# 9. Bill of Materials
-
-## 9.1 Full BOM
-
-| Item                             | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec               | Why This Choice?          |
-| -------------------------------- | --------:| ------- | ------------ | --------------:| ----------------------------- | ------------------------- |
-| `[RASPI]`                        | `1`      | `Yes`   | `No`         | `0`            | `38 Pin ESP32`                | `[To control components]` |
-| `[Motor Driver]`                 | `[1]`    | `[Yes]` | `[No]`       | `0`            | `[LN296]`                     | `[To drive both motors]`  |
-| `[DC Motors and wheel]`          | `[2]`    | `[No]`  | `[Yes]`      | `[150]`        | `[BO Motors and 6 cm wheels]` | `[high torque motors]`    |
-| `[Buck Converter]`               | `[1]`    | `[No]`  | `[Yes]`      | `[75]`         |                               |                           |
-| `[Li-ion batteries with holder]` | `[1]`    | `[No]`  | `[Yes]`      | `[200]`        |                               |                           |
-
-## 9.2 Material Justification
-
-Explain why you selected your main materials and components.
-
-**Response:**  
-`DC motors (BO motors) were chosen instead of servos or steppers because the system requires continuous rotation for movement rather than precise angular control (Previously, we were considering using steppers as we were planning on tracking movement on the ESP using its relative position from an origin, but since we're using a camera now, this is not required). A motor driver (L298N) was used to allow bidirectional control and speed variation using PWM.`
-
-
-## 9.3 Items You chose
-
-| Item                 | Why Needed               | Purchase Link | Latest Safe Date to Procure | Status       |
-| -------------------- | ------------------------ | ------------- | --------------------------- | ------------ |
-| `BO Motors + Wheels` | `Drive system for car`   | `robu.in`     | `15th April`                | `[Received]` |
-| `Buck Converter`     | `Stable power for ESP32` | `local store` | `before testing`            | `[Received]` |
-| `Li-ion Batteries`   | `Portable power`         | `local store` | `before testing`            | `Recieved`   |
-
-## 9.4 Budget Summary
-
-| Budget Item           | Estimated Cost              |
-| --------------------- | ---------------------------:|
-| Electronics           | `[400]`                     |
-| Mechanical parts      | `[200]`                     |
-| Fabrication materials | `[0 (Available on campus)]` |
-| Purchased extras      | `[0]`                       |
-| Contingency           | `[300]`                     |
-| **Total**             | `[900]`                     |
-
-## 9.5 Budget Reflection
-
-If your cost is too high, what can be simplified, removed, substituted, or shared?
-
-**Response:**  
+| System Part | Type | What It Does |
+|---|---|---|
+| MPU6050 Sensor 1 (0x68) | Input | Detects hand tilt for Player 1 paddle |
+| MPU6050 Sensor 2 (0x69) | Input | Detects hand tilt for Player 2 paddle |
+| Raspberry Pi 4 | Processing | Reads sensor data and runs game logic |
+| Rust + Raylib | Software | Renders game graphics and physics |
+| HDMI Display | Output | Shows live ping pong gameplay |
+| I2C Bus (SDA/SCL) | Communication | Transfers motion data from both sensors |
 
 ---
 
-# 10. Planning the Work
+## ⚙️ Software Architecture & Flowcharts
 
-## 10.1 Team Working Agreement
+### 1. System Startup Flow
 
-Write how your team will work together.
-
-Include:
-
-- how tasks are divided,
-- how decisions are made,
-- how progress will be checked,
-- what happens if a task is delayed,
-- how documentation will be maintained.
-
-**Response:**  
-
-
-## 10.2 Task Breakdown
-
-| Task ID | Task                    | Owner    | Estimated Hours | Deadline     | Dependency | Status |
-| ------- | ----------------------- | -------- | ---------------:| ------------ | ---------- | ------ |
-| T1      | `[Finalize concept]`    | `[Both]` | `2`             | `1st April`  | `None`     | `Done` |
-
-
-## 10.3 Responsibility Split
-
-| Area                 | Main Owner     | Support Owner |
-| -------------------- | ----------     | ------------- |
-| Concept              | `[Mrugendra]`  | `[Jyoti]`     |
-| Electronics          | `[]`           | `[]`          |
-| Coding               | `[]`           | `[]`          |
-| Mechanical build     | `[]`           | `[]`          |
-| Testing              | `[]`           | `[]`          |
-| Documentation        | `[]`           | `[]`          |
+```mermaid
+flowchart TD
+    A([Start]) --> B[Initialize I2C Bus /dev/i2c-1]
+    B --> C[Wake up MPU6050 #1 at 0x68]
+    C --> D[Wake up MPU6050 #2 at 0x69]
+    D --> E{Sensors OK?}
+    E -- No --> F[Print Error & Exit]
+    E -- Yes --> G[Initialize Raylib Fullscreen Window @ 60 FPS]
+    G --> H[Create Left & Right Paddles]
+    H --> I[Spawn Ball at Screen Center]
+    I --> J([Enter Game Loop])
+```
 
 ---
 
-# 11 hour Milestones
+### 2. Main Game Loop
 
-## 11.1 8-hour Plan(tentetively you may set)
-
-### Bi Hour 1 — Plan and De-risk
-
-Expected outcomes:
-
-- [x] Idea finalized
-- [x] Core interaction decided
-- [x] Sketches made
-- [x] BOM completed
-- [x] Purchase needs identified
-- [ ] Key uncertainty identified
-- [x] Basic feasibility tested
-
-### Bi Hour 2 — Build Subsystems
-
-Expected outcomes:
-
-- [x] Electronics tests completed
-- [ ] CAD / structure planning completed
-- [ ] App UI started if needed
-- [x] Mechanical concept tested
-- [x] Main subsystems partially working
-
-### Bi Hour 3 — Integrate
-
-Expected outcomes:
-
-- [x] Physical body built
-- [x] Electronics integrated
-- [x] Code connected to hardware
-- [ ] App connected if required
-- [x] First playable version exists
-
-### Bi Hour 4 — Refine and Finish
-
-Expected outcomes:
-
-- [x] Technical bugs reduced
-- [x] Playtesting completed
-- [x] Improvements made
-- [x] Documentation completed
-- [x] Final build ready
-
-## 12.2  Update Log
-
-| Days   | Planned Goal   | What Actually Happened | What Changed   | Next Steps     |
-| ------ | -------------- | ---------------------- | -------------- | -------------- |
-| Day 1 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 2 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 3 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 4 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
+```mermaid
+flowchart TD
+    A([Game Loop Start]) --> B[Read Y-axis tilt from MPU6050 #1]
+    B --> C[Read Y-axis tilt from MPU6050 #2]
+    C --> D[Map tilt values → screen Y positions]
+    D --> E[Clamp paddles within top & bottom boundaries]
+    E --> F[Append ball position to trail buffer]
+    F --> G[Move ball: x += vx, y += vy]
+    G --> H{Ball hit top or bottom wall?}
+    H -- Yes --> I[Reverse vy]
+    H -- No --> J{Ball hit Left Paddle?}
+    I --> J
+    J -- Yes --> K[Reverse & accelerate vx × 1.1\nIncrement Left Score]
+    J -- No --> L{Ball hit Right Paddle?}
+    K --> L
+    L -- Yes --> M[Reverse & accelerate vx × 1.1\nIncrement Right Score]
+    L -- No --> N{Ball out of bounds?}
+    M --> N
+    N -- Yes --> O[Reset ball to center\nRandom new direction]
+    N -- No --> P[Draw frame: background, divider,\nscores, paddles, ball trail, ball]
+    O --> P
+    P --> Q{Window close?}
+    Q -- No --> A
+    Q -- Yes --> R([Exit])
+```
 
 ---
 
-# 13. Risks and Unknowns
+### 3. Sensor Reading & Paddle Mapping
 
-## 13.1 Risk Register
-
-| Risk                                                            | Type         | Likelihood | Impact   | Mitigation Plan                                                                       | Owner                |
-| --------------------------------------------------------------- | ------------ | ---------- | -------- | ------------------------------------------------------------------------------------- | -------------------- |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
-
-
-## 13.2 Biggest Unknown Right Now
-
-What is the single biggest uncertainty in your project at this stage?
-
-**Response:**  
-
-
----
-
-# 14. Testing 
-
-## 14.1 Technical Testing Plan
-
-| What Needs Testing     | How You Will Test It                                                                 | Success Condition                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `[Wifi connection]`    | `[Check if motor spins via app button]`                                              | `[Both motors accurately respond to wifi signals]`                                                   |
-                       |
-## 14.2 Testing and Debugging Log
-
-| Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
-| ------------- | ------------------------------------- | ------------ | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-| `18th April`  | `Car not balancing properly`          | `Mechanical` | `Add low-friction caster support to one side` | `Worked`             | `improve caster structure`                     |
-
-
-## 14.3 Playtesting Notes
-
-| Tester      | What They Did                        | What Confused Them                    | What They Enjoyed                         | What You Will Change                          |
-| ----------- | ------------------------------------ | ------------------------------------- | ----------------------------------------- | --------------------------------------------- |
-| `Gopal` | `Tried navigating through obstacles` | `Some obstacles ewren't clear enough` | `Liked projection + real car interaction` | `Add a slight red highlight around obstacles` |
-
+```mermaid
+flowchart TD
+    A([get_sensor_position called]) --> B[Call mpu.get_acc]
+    B --> C{Read success?}
+    C -- No / Error --> D[Return screen_h / 2.0\nDefault center position]
+    C -- Yes --> E[Read Y-axis accelerometer value]
+    E --> F[pos = screen_h/2 + tilt × 250.0]
+    F --> G{pos < 50.0?}
+    G -- Yes --> H[Clamp pos to 50.0]
+    G -- No --> I{pos > screen_h - 150.0?}
+    H --> J([Return clamped pos])
+    I -- Yes --> K[Clamp pos to screen_h - 150.0]
+    I -- No --> J
+    K --> J
+```
 
 ---
 
-# 15. Build Documentation
+### 4. Ball Physics & Collision
 
-## 15.1 Fabrication Process(if any)
-
-Describe how the project was physically made.
-
-Include:
-
-- cutting,
-- 3D printing,
-- assembly,
-- fastening,
-- wiring,
-- finishing,
-- revisions.
-
-**Response:**  
-`The fabrication process involved designing, manufacturing, assembling, and refining both the physical structure and electronic integration of the system.`
-
-`Design (CAD Modeling):
-The initial model was created using CAD software, where components were designed based on the actual dimensions of the electronic parts. This ensured accurate fitting and minimized errors during assembly.
-Cutting (Laser Cutting):
-The designed parts were fabricated using laser cutting techniques. Sheets were cut precisely according to the CAD model to create the structural base and mounts for components.`
-
-`Components were fixed using adhesives and mechanical supports. Certain parts were intentionally kept modular (not permanently fixed) to allow easy replacement and modification of electronics.
-Surface Finishing:
-Some parts were sanded to smooth rough edges after cutting. Sawdust mixed with adhesive was used to fill gaps and uneven edges, improving structural finish. The final structure was then painted for better aesthetics and durability.`
-
-`Environment Setup (Dark Room Fabrication):
-To enhance projection visibility, a controlled dark environment was created using Z-boards, paper sheets, and bedsheets. This minimized external light interference and improved projection clarity.
-Revisions and Iterations:
-Multiple adjustments were made throughout the process, including refining alignment, improving structural stability, repositioning components, and optimizing the interaction between the physical car and projected environment.`
-
-## 16 Build Photos
-
-Add photos throughout the project.
-
-Suggested images:
-
-- early sketch,
-- prototype,
-- electronics testing,
-- mechanism test,
-- app screenshot,
-- final build.
-- <img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
-
-
-
-
-
-# 17. Final Outcome
-
-## 17.1 Final Description
-
-Describe the final version of your project.
-
-**Response:**  
-
-
-## 17.2 What Works Well
-
-
-
-## 17.3 What Still Needs Improvement
-
-
-## 17.4 What Changed From the Original Plan
-
-How did the project change from the initial idea?
-
-**Response:**  
-
+```mermaid
+flowchart TD
+    A([Ball Update]) --> B[Push current position to trail\nRemove oldest if trail length > 8]
+    B --> C[ball.x += ball.vx\nball.y += ball.vy]
+    C --> D{Top/bottom boundary hit?}
+    D -- Yes --> E[ball.vy = -ball.vy]
+    D -- No --> F{Overlaps Left Paddle\nAND ball moving left?}
+    E --> F
+    F -- Yes --> G[ball.vx = -ball.vx × 1.1\nl_score += 1]
+    F -- No --> H{Overlaps Right Paddle\nAND ball moving right?}
+    G --> H
+    H -- Yes --> I[ball.vx = -ball.vx × 1.1\nr_score += 1]
+    H -- No --> J{ball.x out of screen?}
+    I --> J
+    J -- Yes --> K[Reset ball:\nCenter position\nRandom vx / vy direction\nClear trail\nHits = 0]
+    J -- No --> L([Proceed to Draw])
+    K --> L
+```
 
 ---
 
-# 18. Reflection
+## 🔌 Electronics & Wiring
 
-## 18.1 Team Reflection
+### Components
 
-What did your team do well?  
-What slowed you down?  
-How well did you manage time, tasks, and responsibilities?
+| Component | Qty | Purpose |
+|---|---:|---|
+| Raspberry Pi 4 | 1 | Main processing unit |
+| MPU6050 Motion Sensor | 2 | Player hand gesture detection |
+| HDMI Display | 1 | Game interface output |
+| Breadboard | 1 | Temporary prototyping |
+| Jumper Wires | Several | I2C and power connections |
+| Power Adapter (5V) | 1 | Powers Raspberry Pi |
 
-**Response:**  
+### Wiring Plan
 
+Both MPU6050 sensors share the same I2C bus. To avoid address conflicts:
 
-## 18.2 Technical Reflection
+| Pin | Sensor 1 | Sensor 2 |
+|---|---|---|
+| SDA | GPIO2 (Pin 3) | GPIO2 (Pin 3) |
+| SCL | GPIO3 (Pin 5) | GPIO3 (Pin 5) |
+| VCC | 3.3V | 3.3V |
+| GND | GND | GND |
+| AD0 | → GND → Address **0x68** | → 3.3V → Address **0x69** |
 
-What did you learn about:
+### I2C Address Assignment Diagram
 
-- electronics,
-- coding,
-- mechanisms,
-- fabrication,
-- integration?
-
-**Response:**  
-
-
-## 18.3 Design Reflection
-
-What did you learn about:
-
-- designing ,
-- delight,
-- clarity,
-- physical interaction,
-- understanding,
-- iteration?
-
-**Response:**  
-
-
-## 18.4 If You Had One More hour
-
-What would you improve next?
-
-**Response:**  
-
-` `
+```
+Raspberry Pi 4
+┌───────────────────────────┐
+│  GPIO2 (SDA) ─────────────┼──┬──── MPU6050 #1  AD0→GND  (0x68)
+│  GPIO3 (SCL) ─────────────┼──┤──── MPU6050 #2  AD0→3.3V (0x69)
+│  3.3V        ─────────────┼──┤──── VCC (both sensors)
+│  GND         ─────────────┼──┴──── GND (both sensors)
+└───────────────────────────┘
+```
 
 ---
 
-# 19. Final Submission Checklist
+## 💻 Software Stack
 
-Before submission, confirm that:
-
-- [x] Team details are complete
-- [x] Project description is complete
-- [x] Inspiration sources are included
-- [x] Sketches are added
-- [x] BOM is complete
-- [x] Purchase list is complete
-- [x] Budget summary is complete
-- [x] Mechanical planning is documented if applicable
-- [ ] App planning is documented if applicable
-- [x] Code flowchart is added
-- [x] Task breakdown is complete
-- [x] Weekly logs are updated
-- [x] Risk register is complete
-- [x] Testing log is updated
-- [x] Playtesting notes are included
-- [x] Build photos are included
-- [x] Final reflection is written
-<img width="1131" height="1600" alt="image" src="" />
+| Tool / Platform | Purpose |
+|---|---|
+| Rust (Edition 2024) | Main programming language |
+| Cargo | Package manager & build system |
+| Raylib 5.5.1 | Graphics rendering & game framework |
+| `rand` crate | Random ball direction on reset |
+| `linux-embedded-hal` | I2C device access on Linux |
+| `mpu6050` crate | Sensor communication library |
+| Raspberry Pi OS | Host operating system |
 
 ---
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Raspberry Pi 4 running Raspberry Pi OS (64-bit recommended)
+- Rust toolchain installed (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
+- I2C enabled on the Raspberry Pi (`sudo raspi-config` → Interface Options → I2C → Enable)
+- Two MPU6050 sensors wired as described above
+
+### Build & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/pingpong-software.git
+cd pingpong-software
+
+# Build the project
+cargo build --release
+
+# Run the game (requires sudo for I2C access)
+sudo ./target/release/ping-pong
+```
+
+### Enable I2C on Raspberry Pi
+
+```bash
+# Enable I2C
+sudo raspi-config nonint do_i2c 0
+
+# Verify both sensors are detected
+i2cdetect -y 1
+# You should see 0x68 and 0x69 listed
+```
 
 ---
 
+## 📐 Physical Dimensions
 
+| Dimension | Value |
+|---|---|
+| Length | 16 cm |
+| Width | 16 cm |
+| Height | 8 cm |
+| Estimated Weight | ~400 g |
+
+---
+
+## 💰 Budget Summary
+
+| Item | Cost (₹) |
+|---|---:|
+| Electronics | 400 |
+| Mechanical Parts | 200 |
+| Fabrication Materials | 0 (campus) |
+| Contingency | 300 |
+| **Total** | **900** |
+
+---
+
+## ⚠️ Risks & Mitigations
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| I2C sensor disconnect during gameplay | Medium | High | Address-based separation (0x68/0x69); safe fallback returns center position |
+| Sensor drift causing paddle jitter | Medium | Medium | Clamp paddle positions to screen boundaries |
+| Raspberry Pi display latency | Low | Medium | Raylib targets locked 60 FPS with vsync |
+| Power instability affecting sensor reads | Low | High | Dedicated 5V adapter; avoid USB hub power |
+
+---
+
+## 🧪 Testing Log
+
+| Date | Test | Result |
+|---|---|---|
+| 18 Apr | I2C detection of both MPU6050 sensors | Both 0x68 and 0x69 detected |
+| 20 Apr | Tilt-to-paddle mapping calibration | 250.0 multiplier gives smooth response |
+| 22 Apr | Ball physics & bounce | Working correctly |
+| 24 Apr | Full two-player gameplay session | Playable, minor jitter fixed with clamping |
+
+---
+
+## 🏁 Milestone Progress
+
+| Milestone | Status |
+|---|---|
+| Idea finalized & BOM complete | ✅ Done |
+| Electronics wired & I2C verified | ✅ Done |
+| Rust game engine running with sensor input | ✅ Done |
+| Physical enclosure fabricated | ✅ Done |
+| Full two-player game playable | ✅ Done |
+| Documentation complete | ✅ Done |
+
+---
+
+## 🔮 Future Improvements
+
+- **Smash detection** — spike in acceleration triggers a fast ball
+- **ESP32 wireless** — cut the wires, play wirelessly
+- **Sound effects** — beeps and boops on every hit
+- **AI opponent** — single-player mode against the computer
+- **High score board** — persistent leaderboard on screen
+- **Gesture calibration** — in-game sensor calibration menu
+
+---
+
+## 👷 Fabrication Notes
+
+The physical controller housing was laser-cut from CAD designs sized to actual component dimensions. Parts were assembled with adhesive and modular mounts to allow easy electronics access. Rough edges were sanded and filled with sawdust-adhesive paste before painting. The display environment was optimized for visibility using controlled lighting.
+
+---
+
+## 📸 Build Photos
+
+> *(Add your build photos here — early sketch, sensor wiring, enclosure, final gameplay)*
+
+---
+
+## 📄 License
+
+This project was built for the **Skill Lab Practical Hackathon**. Open for educational use.
+
+---
+
+*AirPaddle — Group 21 | Skill Lab Practical Hackathon 2026*
